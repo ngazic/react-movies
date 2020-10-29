@@ -1,6 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+API KEY is in .env file.
 
 ## Available Scripts
 
@@ -48,11 +49,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Guides
 
-Testing is guided by these principles: [Official React testing Library guide](https://testing-library.com/docs/guiding-principles)
+Testing is guided by these principles: [Official React testing Library guide](https://testing-library.com/docs/guiding-principles).
 Simple guide from testing Vue JS apps: [Know what to test](https://vuejsdevelopers.com/2019/08/26/vue-what-to-unit-test-components/) 
 
 ### Add redux 
 
 ```
-npm install -S redux react-redux @types/react-redux
+npm install -S redux react-redux redux-thunk redux-devtools-extension @types/react-redux
 ```

@@ -1,7 +1,7 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-API KEY is in .env file.
+API KEY is in .env file. To protect api keys, they should start with **"REACT_APP_"**. For the sake of this demo, we didn't keep them so hidden.
 
 ## Available Scripts
 

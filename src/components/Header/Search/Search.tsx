@@ -1,6 +1,7 @@
 import React, { FormEvent } from 'react'
 import { useDispatch } from 'react-redux'
 import './Search.scss'
+import { getSearchItems } from '../../../store/actions/searchActions';
 
 const Search: React.FC = (props?) => {
   const dispatch = useDispatch();
@@ -8,10 +9,7 @@ const Search: React.FC = (props?) => {
   const changeHandler = (e: FormEvent<HTMLInputElement>) => {
     console.log('CHANGE')
     console.log(e.currentTarget.value)
-    dispatch({
-      type: 'TEST',
-      payload: e.currentTarget.value
-    });
+    dispatch(getSearchItems(e.currentTarget.value));
   }
 
 

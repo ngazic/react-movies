@@ -1,10 +1,18 @@
 
-const initialState = { title: 'hello' };
+import { SEARCH, SearchState } from '../types'
 
-function searchReducer(state=initialState, action: {type:string; payload: string;}) {
-  console.log('search reducer is here')
+const initialState: SearchState = { item: 'hello' };
+
+function searchReducer(state = initialState, action: { type: string; payload: string; }):SearchState {
   console.log(action)
-  return initialState;
+  switch (action.type) {
+    case SEARCH: {
+      console.log(SEARCH);
+      return state;
+    }
+    default:
+      return state;
+  }
 }
 
 export default searchReducer;

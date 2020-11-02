@@ -4,6 +4,7 @@ import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
 import configureStore from "redux-mock-store";
 import { fireEvent, render } from "@testing-library/react";
+import { SearchAction } from '../../../store/types'
 
 describe('src/Components/Header/Search/Search.tsx', () => {
   const mockStore = configureStore([thunk]);
@@ -26,7 +27,11 @@ describe('src/Components/Header/Search/Search.tsx', () => {
 
   it('dispatch "searchAction" on input changed', () => {
     const { getByRole } = renderWithStore(<Search />);
+    const expectedAction: SearchAction = {
+      type: "SEARCH",
+      payload: 'aaa'
+    }
     fireEvent.change(getByRole('textbox'), {target: {value: 'aaa'}});
-    expect(spyDispatch).toBeCalledWith({type: 'SEARCH', payload: 'aaa'});
+    expect(spyDispatch).toBeCalledWith(expectedAction);
   });
 });

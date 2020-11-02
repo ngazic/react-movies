@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header/Navigation/Navigation.tsx should match snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="navigation"
+  >
+    <a
+      href="/movies"
+    >
+      Movies
+    </a>
+    <a
+      href="/shows"
+    >
+      TV Shows
+    </a>
+  </nav>
+</DocumentFragment>
+`;

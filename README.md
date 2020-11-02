@@ -57,3 +57,18 @@ Simple guide from testing Vue JS apps: [Know what to test](https://vuejsdevelope
 ```
 npm install -S redux react-redux redux-thunk redux-devtools-extension @types/react-redux
 ```
+
+### Add Sass preprocessor
+
+```
+npm install node-sass@4.14.1
+```
+
+### Add Router
+
+```
+npm i react-router-dom @types/react-router-dom
+```
+
+## Useful resources
+[Free code camp: Start testing using react testing library](https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/).

@@ -26,7 +26,7 @@ describe('src/Components/Header/Search/Search.tsx', () => {
 
   it('dispatch "searchAction" on input changed', () => {
     const { getByRole } = renderWithStore(<Search />);
-    fireEvent.change(getByRole('textbox'));
-    expect(spyDispatch).toBeCalled();
+    fireEvent.change(getByRole('textbox'), {target: {value: 'aaa'}});
+    expect(spyDispatch).toBeCalledWith({type: 'SEARCH', payload: 'aaa'});
   });
 });

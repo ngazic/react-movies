@@ -4,9 +4,11 @@ import './Search.scss'
 
 const Search: React.FC = (props?) => {
   const dispatch = useDispatch();
-
+  
   const changeHandler = (e: FormEvent<HTMLInputElement>) => {
     console.log('CHANGE')
+    console.log(e.currentTarget.value)
+    dispatch({});
   }
 
 

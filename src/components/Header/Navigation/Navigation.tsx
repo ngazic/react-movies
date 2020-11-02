@@ -5,7 +5,7 @@ import './Navigation.scss';
 const Navigation: FunctionComponent = () => {
   return (
     <nav className='navigation'>
-     <Link to='movies'>
+     <Link to='/'>
       Movies
      </Link>
      <Link to='shows'>

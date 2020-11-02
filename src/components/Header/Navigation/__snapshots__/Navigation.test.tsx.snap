@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header/Navigation/Navigation.tsx should match snapshot 1`] = `
+exports[`src/components/Header/Navigation/Navigation.tsx should match snapshot 1`] = `
 <DocumentFragment>
   <nav
     class="navigation"

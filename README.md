@@ -70,5 +70,11 @@ npm install node-sass@4.14.1
 npm i react-router-dom @types/react-router-dom
 ```
 
+### Add Redux mock store for development
+
+```
+npm i redux-mock-store -D
+```
+
 ## Useful resources
 [Free code camp: Start testing using react testing library](https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/).

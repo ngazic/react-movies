@@ -1,9 +1,9 @@
-import React, {FunctionComponent} from "react";
+import React, { FunctionComponent } from "react";
 import Navigation from "./Navigation/Navigation";
 
 const Header: FunctionComponent = () => {
   return (<div>
-    <Navigation/>
+    <Navigation />
   </div>);
 };
 

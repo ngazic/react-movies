@@ -5,7 +5,7 @@ import { Router } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import { createMemoryHistory } from "history";
 
-describe("Header/Navigation/Navigation.tsx", () => {
+describe("src/components/Header/Navigation/Navigation.tsx", () => {
   const history = createMemoryHistory();
   const spy = jest.spyOn(history, "push");
   const renderWithRouter = (component: React.ReactElement) => {

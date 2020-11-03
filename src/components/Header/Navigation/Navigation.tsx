@@ -5,10 +5,10 @@ import './Navigation.scss';
 const Navigation: FunctionComponent = () => {
   return (
     <nav className='navigation'>
-     <Link to='/'>
+     <Link to='/movies'>
       Movies
      </Link>
-     <Link to='shows'>
+     <Link to='/'>
        TV Shows
      </Link>
     </nav>

@@ -1,9 +1,9 @@
 
-import { SEARCH, SearchState } from '../types'
+import { SEARCH, SearchState, GET_TOP_MOVIES } from '../types'
 
 const initialState: SearchState = { item: 'hello' };
 
-function searchReducer(state = initialState, action: { type: string; payload: string; }):SearchState {
+function searchReducer(state = initialState, action: { type: string; payload: string; }): SearchState {
   console.log(action)
   switch (action.type) {
     case SEARCH: {

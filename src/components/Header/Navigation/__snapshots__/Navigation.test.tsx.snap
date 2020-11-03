@@ -6,12 +6,12 @@ exports[`src/components/Header/Navigation/Navigation.tsx should match snapshot 1
     class="navigation"
   >
     <a
-      href="/"
+      href="/movies"
     >
       Movies
     </a>
     <a
-      href="/shows"
+      href="/"
     >
       TV Shows
     </a>

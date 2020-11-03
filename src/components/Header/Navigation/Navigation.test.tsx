@@ -30,14 +30,14 @@ describe("src/components/Header/Navigation/Navigation.tsx", () => {
     const moviesLink = getByText("Movies");
     userEvent.click(moviesLink);
     // expect(history.location.pathname).toBe("/hello");
-    expect(spy).toBeCalledWith("/");
+    expect(spy).toBeCalledWith("/movies");
   });
 
   it('clicking "TV Shows" should redirect to "/shows"', () => {
     const { getByText } = renderWithRouter(<Navigation />);
-    const moviesLink = getByText(/tv shows/i);
-    userEvent.click(moviesLink);
-    expect(spy).toBeCalledWith("shows");
+    const showsLink = getByText(/tv shows/i);
+    userEvent.click(showsLink);
+    expect(spy).toBeCalledWith("/");
     // screen.debug();
   });
 });

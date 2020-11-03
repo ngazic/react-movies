@@ -1,29 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { Provider } from "react-redux";
-import store from './store';
+import { useDispatch } from "react-redux";
+import { getTopMovies } from './store/actions/searchActions';
+import { Movies } from "./store/types";
+import List from './components/Containers/List'
 
 const App: React.FunctionComponent = () => {
+  const [movies, setMovies] = useState<Movies[]>();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTopMovies());
+  }
+  )
   return (<div>
-    <Provider store={store} >
-      <h1>Welcome to cool new App.</h1>
-      <BrowserRouter>
-        <Header />
-        <Switch>
-          <Route path="/" exact>
-            <h1>Home</h1>
-          </Route>
-          <Route path="/movies">
-            <h1>Movies</h1>
-          </Route>
-          <Route path="/shows">
-            <h1>Shows</h1>
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    </Provider>
+    <h1>Welcome to cool new App.</h1>
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        <Route path="/movies">
+          <h1>Movies</h1>
+          <List />
+        </Route>
+        <Route path="/">
+          <h1>Shows</h1>
+          <List />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </div>);
 };
 

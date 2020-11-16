@@ -1,0 +1,15 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__item {
+			list-style: none;
+				flex-basis: 25%;
+				// padding-left: 25px;
+				// padding-right: 25px;
+
+        img {
+            width: 100%;
+        }
+    }
+}

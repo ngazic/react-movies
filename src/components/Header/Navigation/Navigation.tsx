@@ -1,14 +1,17 @@
-import React, { FunctionComponent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { FunctionComponent, MouseEvent } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
 import './Navigation.scss';
 
-const Navigation: FunctionComponent = () => {
+interface NavigationProps {
+  click: (e: MouseEvent<HTMLAnchorElement>) => void
+}
+const Navigation: FunctionComponent<NavigationProps> = (props) => {
   return (
     <nav className='navigation'>
-     <Link to='/movies'>
+     <Link to='/movie' onClick={props.click}>
       Movies
      </Link>
-     <Link to='/'>
+     <Link to='/tv' onClick={props.click}>
        TV Shows
      </Link>
     </nav>

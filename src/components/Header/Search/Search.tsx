@@ -1,17 +1,25 @@
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useLocation } from 'react-router-dom';
+import { getSearchItems } from '../../../store/actions';
 import './Search.scss'
-import { getSearchItems, asyncTest, getTopMovies } from '../../../store/actions/searchActions';
 
-const Search: React.FC = (props?) => {
+interface SearchProps {
+  category: string;
+}
+
+const Search: React.FC<SearchProps> = (props) => {
   const dispatch = useDispatch();
-
+  const location = useLocation();
+  let timer: NodeJS.Timeout;
+// const [timer, setTimer] = useState();
   const changeHandler = (e: FormEvent<HTMLInputElement>) => {
-    console.log('CHANGE')
-    console.log(e.currentTarget.value)
-    // dispatch(getSearchItems(e.currentTarget.value));
-    // dispatch(asyncTest(e.currentTarget.value));
-    dispatch(getTopMovies());
+    console.log('change handler')
+    const searchTerm = e.currentTarget.value;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        dispatch(getSearchItems(searchTerm, props.category))
+    }, 1000)
   }
 
 

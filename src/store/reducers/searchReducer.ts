@@ -1,18 +1,22 @@
 
-import { SEARCH, SearchState, GET_TOP_MOVIES } from '../types'
+import { Items, SEARCH, SearchAction, SET_SEARCH_ERROR } from '../types'
 
-const initialState: SearchState = { item: 'hello' };
+const initialState: Items[] = []
 
-function searchReducer(state = initialState, action: { type: string; payload: string; }): SearchState {
+function searchReducer(state = initialState, action: SearchAction): Items[] {
+  console.log('search reducer')
   console.log(action)
-  switch (action.type) {
+  switch(action.type) {
     case SEARCH: {
-      console.log(SEARCH);
-      return state;
-    }
-    default:
-      return state;
+    console.log(SEARCH);
+    return action.payload
   }
+    case SET_SEARCH_ERROR: {
+    return []
+  }
+    default:
+  return state;
+}
 }
 
 export default searchReducer;

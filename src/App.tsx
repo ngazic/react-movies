@@ -1,35 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "./components/Header/Header";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { useDispatch } from "react-redux";
-import { getTopMovies } from './store/actions/searchActions';
-import { Movies } from "./store/types";
-import List from './components/Containers/List'
+import { getTopMovies, getTopShows } from './store/actions/index';
+import List from './components/Containers/List/List';
+import Single from "./components/Containers/Single/Single";
+
 
 const App: React.FunctionComponent = () => {
-  const [movies, setMovies] = useState<Movies[]>();
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getTopMovies());
-  }
-  )
+  dispatch(getTopMovies());
+  dispatch(getTopShows());
   return (<div>
     <h1>Welcome to cool new App.</h1>
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path="/movies">
-          <h1>Movies</h1>
-          <List />
+        <Route exact path="/">
+          <Redirect to='/tv' />
         </Route>
-        <Route path="/">
+        <Route path="/movie">
+          <h1>Movies</h1>
+          <List show='movies'/>
+        </Route>
+        <Route path="/tv">
           <h1>Shows</h1>
-          <List />
+          <List show='shows' />
+        </Route>
+        <Route path="/single">
+          <h1>Single</h1>
+          <Single />
         </Route>
       </Switch>
     </BrowserRouter>
   </div>);
 };
 
-export default App;
+ 
+ export default App;

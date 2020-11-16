@@ -1,3 +1,31 @@
 .single {
-  
+  &__title {
+    font-size: 38px;
+    line-height: 46px;
+    margin: 15px auto 30px;
+  }
+
+  &__link {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    padding-left: 20px;
+    transition: 0.3s ease-in-out all;
+    padding: 10px 15px 10px 25px;
+    margin-bottom: 30px;
+
+    &::before {
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      transform: translateY(-56%);
+      content: '<';
+      font-size: x-large;
+    }
+
+    &:hover {
+      background-color: rgba($color: #4a4a4a, $alpha: 0.7);
+      color: white;
+    }
+  }
 }

@@ -1,15 +1,32 @@
 .list {
-    display: flex;
-    flex-wrap: wrap;
+	list-style: none;
 
-    &__item {
-			list-style: none;
-				flex-basis: 25%;
-				// padding-left: 25px;
-				// padding-right: 25px;
+	&__item {
+		border: solid #4a4a4a 2px;
+		margin-bottom: 30px;
 
-        img {
-            width: 100%;
-        }
-    }
+		&-title {
+			text-align: center;
+			font-size: 38px;
+			line-height: 46px;
+			margin: 15px auto;
+		}
+
+		figure {
+			position: relative;
+			display: block;
+			height: 0;
+			padding-bottom: 56.25%;
+			margin: 0;
+		}
+
+		img {
+			width: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+		}
+
+	}
 }

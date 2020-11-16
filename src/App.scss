@@ -1,0 +1,57 @@
+
+.App {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+
+  .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+
+    .col {
+      box-sizing: border-box;
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      max-width: 100%;
+      position: relative;
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+
+      &-6 {
+        @media (min-width: 768px) {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+      }
+    }
+
+    figure {
+      position: relative;
+      display: block;
+      height: 0;
+      padding-bottom: 56.25%;
+      margin: 0;
+
+      img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+    }
+  }
+}

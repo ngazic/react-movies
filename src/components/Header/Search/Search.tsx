@@ -1,31 +1,26 @@
 import React, { FormEvent, useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { useLocation } from 'react-router-dom';
-import { getSearchItems } from '../../../store/actions';
 import './Search.scss'
 
 interface SearchProps {
   category: string;
+  change: (e: FormEvent<HTMLInputElement>) => void;
 }
 
 const Search: React.FC<SearchProps> = (props) => {
-  const dispatch = useDispatch();
-  const location = useLocation();
-  let timer: NodeJS.Timeout;
-// const [timer, setTimer] = useState();
-  const changeHandler = (e: FormEvent<HTMLInputElement>) => {
-    console.log('change handler')
-    const searchTerm = e.currentTarget.value;
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-        dispatch(getSearchItems(searchTerm, props.category))
-    }, 1000)
+  const [hasValue, setHasValue] = useState<boolean>(false);
+  const changeInput = (e: FormEvent<HTMLInputElement>) => {
+    props.change(e);
+    if (e.currentTarget.value.trim().length > 0) {
+      setHasValue(true);
+    }
+    else {
+      setHasValue(false);
+    }
   }
-
 
   return (
     <div className="search">
-      <input type="text" name="search" placeholder="search" onChange={changeHandler} />
+      <input type="text" name="search" placeholder="search" onChange={changeInput} style={hasValue ? { backgroundImage: 'none', paddingLeft: '10px', fontSize: '18px' } : {}} />
     </div>
   )
 }

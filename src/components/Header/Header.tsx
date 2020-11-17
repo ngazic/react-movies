@@ -6,7 +6,6 @@ import Navigation from "./Navigation/Navigation";
 import Search from "./Search/Search";
 
 const Header: FunctionComponent = () => {
-  const [link, setLink] = useState('tv');
   const [searchTerm, setSearchTerm] = useState('tv');
 
   const location = useLocation();
@@ -20,7 +19,6 @@ const Header: FunctionComponent = () => {
   const linkClick = (event: MouseEvent<HTMLAnchorElement>) => {
     const linkBasePaths = event.currentTarget.href.split('/');
     const link = linkBasePaths[linkBasePaths.length - 1]
-    setLink(event.currentTarget.href.split('/')[linkBasePaths.length - 1])
     dispatch(getSearchItems(searchTerm, link))
   }
 
@@ -31,13 +29,14 @@ const Header: FunctionComponent = () => {
     }
     clearTimeout(timer);
     timer = setTimeout(() => {
+      const link = location.pathname.replace('/', '')
       dispatch(getSearchItems(searchTerm, link))
       setSearchTerm(searchTerm);
     }, 1000)
   }
   return (<header style={{ display: (hide) ? 'none' : '' }}>
     <Navigation click={linkClick} />
-    <Search category={link} change={changeHandler} />
+    <Search change={changeHandler} />
   </header>);
 };
 

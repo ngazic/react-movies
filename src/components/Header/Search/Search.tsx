@@ -2,7 +2,6 @@ import React, { FormEvent, useState } from 'react'
 import './Search.scss'
 
 interface SearchProps {
-  category: string;
   change: (e: FormEvent<HTMLInputElement>) => void;
 }
 

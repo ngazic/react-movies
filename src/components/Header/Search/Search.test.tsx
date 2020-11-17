@@ -4,12 +4,11 @@ import thunk from "redux-thunk";
 import { Provider } from 'react-redux';
 import configureStore from "redux-mock-store";
 import { fireEvent, render } from "@testing-library/react";
-import { SearchAction } from '../../../store/types'
 
 describe('src/Components/Header/Search/Search.tsx', () => {
   const mockStore = configureStore([thunk]);
   const store = mockStore();
-  const spyDispatch = jest.spyOn(store, 'dispatch');
+  const changeProp = jest.fn();
   const renderWithStore = (component: React.ReactElement) => {
     return {
       ...render(<Provider store={store}>{component}</Provider>)
@@ -17,21 +16,17 @@ describe('src/Components/Header/Search/Search.tsx', () => {
   };
 
   // it('Should render "Search" component', () => {
-    // match snapshot
+  // match snapshot
   // });
 
   it('has "search" placeholder text', () => {
-    const { getByPlaceholderText } = renderWithStore(<Search />);
+    const { getByPlaceholderText } = renderWithStore(<Search change={changeProp} />);
     expect(getByPlaceholderText('search')).toBeTruthy();
   });
 
-  it('dispatch "searchAction" on input changed', () => {
-    const { getByRole } = renderWithStore(<Search />);
-    const expectedAction: SearchAction = {
-      type: "SEARCH",
-      payload: 'aaa'
-    }
-    fireEvent.change(getByRole('textbox'), {target: {value: 'aaa'}});
-    expect(spyDispatch).toBeCalledWith(expectedAction);
+  it('calls binded property function on inputed value in search box', () => {
+    const { getByRole } = renderWithStore(<Search change={changeProp} />);
+    fireEvent.change(getByRole('textbox'), { target: { value: 'aaa' } });
+    expect(changeProp).toBeCalledTimes(1);
   });
 });

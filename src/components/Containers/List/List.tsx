@@ -12,7 +12,7 @@ interface ListProps {
   items?: Items[];
   category?: string;
 }
-// const noImgPlacehoder = require('../../../assets/no-image.png')
+
 const List: React.FC<ListProps> = (props) => {
   const history = useHistory();
   const singleView = (category: string, id: number) => {

@@ -8,6 +8,7 @@ import { createMemoryHistory } from "history";
 describe("src/components/Header/Navigation/Navigation.tsx", () => {
   const history = createMemoryHistory();
   const spy = jest.spyOn(history, "push");
+  const clickProp = jest.fn()
   const renderWithRouter = (component: React.ReactElement) => {
     return {
       ...render(<Router history={history}>{component}</Router>)
@@ -15,29 +16,33 @@ describe("src/components/Header/Navigation/Navigation.tsx", () => {
   };
 
   it("should match snapshot", () => {
-    const { asFragment } = renderWithRouter(<Navigation />);
+    const { asFragment } = renderWithRouter(<Navigation click={clickProp} />);
     expect(asFragment()).toMatchSnapshot();
   });
 
   it("should render two navigation links", () => {
-    const { getAllByRole } = renderWithRouter(<Navigation />);
+    const { getAllByRole } = renderWithRouter(<Navigation click={clickProp} />);
     const links = getAllByRole("link");
     expect(links).toHaveLength(2);
   });
 
-  it('clicking "movies" should redirect to "/movies"', () => {
-    const { getByText } = renderWithRouter(<Navigation />);
+  it('clicking "movies" should redirect to "/movie"', () => {
+    const { getByText } = renderWithRouter(<Navigation click={clickProp} />);
     const moviesLink = getByText("Movies");
     userEvent.click(moviesLink);
-    // expect(history.location.pathname).toBe("/hello");
-    expect(spy).toBeCalledWith("/movies");
+    expect(spy).toBeCalledWith("/movie");
   });
 
   it('clicking "TV Shows" should redirect to "/shows"', () => {
-    const { getByText } = renderWithRouter(<Navigation />);
+    const { getByText } = renderWithRouter(<Navigation click={clickProp} />);
     const showsLink = getByText(/tv shows/i);
     userEvent.click(showsLink);
-    expect(spy).toBeCalledWith("/");
-    // screen.debug();
+    expect(spy).toBeCalledWith("/tv");
+  });
+  it('clicking link should call passed function', () => {
+    const { getByText } = renderWithRouter(<Navigation click={clickProp} />);
+    const showsLink = getByText(/tv shows/i);
+    userEvent.click(showsLink);
+    expect(clickProp).toHaveBeenCalledTimes(1);
   });
 });

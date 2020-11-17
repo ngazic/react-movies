@@ -6,7 +6,7 @@ import API from '../../API-helper'
 export const getSearchItems = (query: string, category: string): ThunkAction<void, RootState, null, SearchAction> => {
   return async dispatch => {
     try {
-      const res = await fetch(`${API.apiBasePath}/search/${category}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${query}&page=1`)
+      const res = await fetch(`${API.apiBasePath}/search/${category}?api_key=${API.REACT_APP_API_KEY}&language=en-US&query=${query}&page=1`)
       if (!res.ok || query.trim() === '') {
         const resData = await res.json();
         throw new Error(resData.message);
@@ -29,7 +29,7 @@ export const getSearchItems = (query: string, category: string): ThunkAction<voi
 export const getTopMovies = (): ThunkAction<void, RootState, null, MovieAction> => {
   return async dispatch => {
     try {
-      const res = await fetch(`${API.apiBasePath}/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`)
+      const res = await fetch(`${API.apiBasePath}/movie/top_rated?api_key=${API.REACT_APP_API_KEY}&language=en-US&page=1`)
       if (!res.ok) {
         const resData = await res.json();
         throw new Error(resData.message);
@@ -52,7 +52,7 @@ export const getTopMovies = (): ThunkAction<void, RootState, null, MovieAction> 
 export const getTopShows = (): ThunkAction<void, RootState, null, ShowsAction> => {
   return async dispatch => {
     try {
-      const res = await fetch(`${API.apiBasePath}/tv/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`)
+      const res = await fetch(`${API.apiBasePath}/tv/top_rated?api_key=${API.REACT_APP_API_KEY}&language=en-US&page=1`)
       if (!res.ok) {
         const resData = await res.json();
         throw new Error(resData.message);

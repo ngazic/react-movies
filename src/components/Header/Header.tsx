@@ -29,17 +29,16 @@ const Header: FunctionComponent = () => {
     if (searchTerm.trim().length < 3 && searchTerm.trim().length > 0) {
       return;
     }
-    console.log('searching')
     clearTimeout(timer);
     timer = setTimeout(() => {
       dispatch(getSearchItems(searchTerm, link))
       setSearchTerm(searchTerm);
     }, 1000)
   }
-  return (<div style={{ display: (hide) ? 'none' : '' }}>
+  return (<header style={{ display: (hide) ? 'none' : '' }}>
     <Navigation click={linkClick} />
     <Search category={link} change={changeHandler} />
-  </div>);
+  </header>);
 };
 
 export default Header;

@@ -5,6 +5,7 @@ import { RootState } from "../../../store";
 import "./List.scss";
 import { useHistory } from "react-router-dom";
 import noImgPlacehoder from '../../../assets/no-image.png'
+import API from '../../../API-helper'
 
 interface ListProps {
   show: string;
@@ -22,17 +23,19 @@ const List: React.FC<ListProps> = (props) => {
       props.items!.map((item: Items, index: number) => {
         return (<article onClick={() => singleView(props.category!, index)} className="col col-6 list__item-container" key={index}>
           <div className="list__item">
-            <figure>
-              <img src={item.poster_path
-                ? process.env.REACT_APP_IMAGE_PATH + item.poster_path
-                : noImgPlacehoder
-              } alt="" />
-            </figure>
-            {
+            <div className="image-wrapper">
+              <figure>
+                <img src={item.poster_path
+                  ? API.apiImgPath + item.poster_path
+                  : noImgPlacehoder
+                } alt="" />
+              </figure>
+            </div>
+            <h1 className="title list__item-title">{
               item.title
-                ? <h1 className="list__item-title">{item.title}</h1>
-                : <h1 className="list__item-title">{item.name}</h1>
-            }
+                ? item.title
+                : item.name
+            }</h1>
           </div>
         </article>);
       })

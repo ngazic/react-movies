@@ -1,6 +1,4 @@
-
 .App {
-  width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
@@ -17,8 +15,6 @@
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
 
     .col {
       box-sizing: border-box;
@@ -37,8 +33,13 @@
         }
       }
     }
+  }
+
+  .image-wrapper {
+    overflow: hidden;
 
     figure {
+      transition: 0.8s ease all;
       position: relative;
       display: block;
       height: 0;
@@ -53,5 +54,11 @@
         height: 100%;
       }
     }
+
+  }
+
+  .title {
+    font-size: 38px;
+    line-height: 46px;
   }
 }

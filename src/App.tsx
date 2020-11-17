@@ -28,6 +28,9 @@ const App: React.FunctionComponent = () => {
         <Route path="/single">
           <Single />
         </Route>
+        <Route path="*">
+          <Redirect to='/tv' />
+        </Route>
       </Switch>
     </BrowserRouter>
   </div>);

@@ -82,3 +82,24 @@ npm i redux-mock-store -D
 
 ## Useful resources
 [Free code camp: Start testing using react testing library](https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/).
+
+## App goals
+
+Application:
++ application is running without errors
++ solution requirements have been met
++ application is responsive
+- javascript with sourcemaps (debug can be handled better) 
+- design off application is poor, no template was used, not used potential of Ant design
+
+Source codes:
++ BEM naming convention for CSS
++ UI Test Navigation of tsx component by JEST
+- didn't used composeWithDevTools for debug and release build
+- many hardcoded strings and resources
+- not clear structure of application, in the root are helpers, pngs., source codes, csss all together
+- redux structure is not clear, it is only one Actions file containing all operations
+- direct call of fetch on API in useEfect component
+- weak use of potential of functional components, not optimized,by useMemo and useCallback
+- not used useSelector ( mapStateToProps is too old) 
+-  code is not uniform, somewhere is used Type, somewhere Interface, somewhere React F.C and otherwhere FunctionComponent
